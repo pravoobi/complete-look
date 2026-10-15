@@ -27,9 +27,11 @@ Fresh repo. Next.js 16 (App Router) + TypeScript + Tailwind 4, Vitest, tsx. No c
 | Earrings V1.0 (Single / Stacked) | 1 / 2 | `/s2s/v2.0/task/2d-vto/earring` |
 | Necklace V1.0 | 1 | `/s2s/v2.0/task/2d-vto/necklace` |
 | Scarf V2.0 | 2 | `/s2s/v2.0/task/scarf` |
+| Makeup V1.0 (lip, blush etc., explicit hex) | 1 | `/s2s/v2.0/task/makeup-vto` |
+| Look V1.0 (preset templates, not planned) | 2 | `/s2s/v2.0/task/look-vto` |
 | Fabric V1.0 (not planned) | 2 | `/s2s/v2.0/task/fabric` |
 
-**Implication:** one complete look = 20 + 2 (outfit) + 1 + 1 + 2 = **26 units**, or 28 if two outfits are tried on (tone dominates). Live budget is roughly 35 looks, not hundreds. Consequences:
+**Implication:** one complete look = 20 + 2 (outfit) + 1 + 1 + 2 + 1 (makeup) = **27 units**, or 29 if two outfits are tried on (tone dominates). Live budget is roughly 35 looks, not hundreds. Consequences:
 - Cache tone by image hash so re-runs and later outfit tries cost 0 for tone.
 - Samples are recorded once and replayed; live uploads need a tight cap (about 1 look per session; daily cap about 30 units covers about 1 look/day, so raise to about 50 or gate live mode).
 - Reconsider "two outfit try-ons": +2 each, cheap, keep.
