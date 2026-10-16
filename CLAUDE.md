@@ -216,7 +216,7 @@ Dates assume work starts Oct 15. If `docs/progress.md` shows otherwise, it wins.
 | Video + submit | Nov 1 | Video recorded from `/present` and the live app; description, changelog, links tested in incognito; submitted. Social share for bonus units. |
 | Buffer | Nov 2 | Nothing planned |
 
-The window from Oct 28 is tight because of the other deadlines. If the core path isn't committed by end of Oct 29, drop the stylist agent and ship the core path with the judge path.
+The window from Oct 28 is tight because of the other deadlines. The stylist agent is never dropped (Praveen, Oct 16): the sponsor asks for agentic workflows. If time runs short, cut in this order instead: Hindi/Telugu labels, WhatsApp share preview, blush (keep lip colour), OG image polish, the second outfit try-on. The colorMatch + template-text path stays only as the runtime fallback when a Claude call fails.
 
 Update `docs/progress.md` at the end of each session: shipped, blocked, next.
 
