@@ -4,7 +4,8 @@
 
 ## Measured numbers
 
-- **Oct 22, 2026:** tone analysis, 10.0–10.6 s end to end over 4 runs (faces a, c, d, e), 20 units each.
+- **Oct 22, 2026:** tone analysis, 10.0–11.2 s end to end over 5 runs (faces a, c, d, e, h), 20 units each.
+- **Oct 22, 2026:** a free local pre-check (cheek patches, sharp) ranked all 5 faces in the same lightness order as the paid analyzer. It filtered out 2 faces that would have wasted 40 units.
 
 ## Lessons we paid for
 

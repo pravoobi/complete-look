@@ -70,6 +70,7 @@ Fresh repo. Next.js 16 (App Router) + TypeScript + Tailwind 4, Vitest, tsx. No c
 | face-c | #b48c6f | 61.3 | 11.2 | 21.3 | 62.3° | 28.0° (tan/intermediate edge) | 37.4 | #c77979 |
 | face-d | #b78565 | 59.7 | 15.2 | 24.8 | 58.5° | 21.4° (tan) | 24.0 | #b86165 |
 | face-e | #b59177 | 62.8 | 9.8 | 18.9 | 62.6° | 34.2° (intermediate) | 37.4 | #c7757b |
+| face-h | #704f38 | 36.6 | 10.8 | 19.0 | 60.4° | -35.1° (dark) | 24.0 | #673b38 |
 
 - The analyzer picks up a small lightness shift on the same face (ITA +5.8°), so readings aren't just noise. Both read warm (hue about 60°), so we still haven't seen a cool or deep result.
 - **Hair is `#FAF0BE` "Blonde" again, byte for byte.** It looks like a fallback value when hair detection fails, not a reading. Treat `#FAF0BE` as "unknown".
@@ -91,9 +92,19 @@ Fresh repo. Next.js 16 (App Router) + TypeScript + Tailwind 4, Vitest, tsx. No c
 
 **face-f** (prompted "deep, dark brown skin"): not run. The pre-check read the same lightness as face-a (L 70.3 for both), so it would likely land in the same band. Regenerate it darker before spending 20 units.
 
-**Run 5, face-b** (Gemini image): not run. Next tone runs should use a clearly cool face and a clearly deep face, so we can check that `colorMatch` separates shoppers.
+**face-g** (ChatGPT, deep-tone prompt): not run. Pre-check L 62.1, so it would likely read as low-medium.
+
+**Run 5, face-h** (face-g regenerated with "make her skin noticeably darker", Oct 22). Pre-check L 42.0. **20 units, 11.2 s**.
+
+- The API reads her as clearly deep: L 36.6, ITA -35.1° ("dark" band), 69° of ITA below face-e. Hue 60.4° again, so undertone is still flat across all 5 faces (58.5–62.6°), which confirms the depth-and-contrast decision.
+- Lip `#673b38` is a real reading (it tracks skin depth). Eyebrow `#3e3834` again, hair fallback again (5 of 5).
+- Pre-check against API lightness over 5 faces: 70.3→59.0, 76.5→61.3, 73.3→59.7, 78.9→62.8, 42.0→36.6. Same order every time, so the pre-check is a reliable filter.
+
+**Sample shopper set (all measured):** Meera, light (face-e, ITA 34.2°) · Ananya, medium (face-d, 21.4°) · deep shopper (face-h, -35.1°). The provisional depth cut-offs (light ≥ 30°, medium 10–30°, deep < 10°) sort these three correctly.
+
+**face-b** (Gemini image): not run, and no longer needed. Next tone runs should use a clearly cool face and a clearly deep face, so we can check that `colorMatch` separates shoppers.
 
 ## Spikes 2, 3, 5
 Blocked on garment and accessory images.
 
-**Units spent:** 80. **Balance (Oct 22):** 920 + 40.
+**Units spent:** 100 (5 tone runs). **Balance (Oct 22):** 900 + 40.
