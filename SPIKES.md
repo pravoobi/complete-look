@@ -45,5 +45,26 @@ Fresh repo. Next.js 16 (App Router) + TypeScript + Tailwind 4, Vitest, tsx. No c
 
 **Still unknown (needs images / paid calls):** exact polling path and result JSON, tone JSON fields, image requirements (size, framing), whether sarees work, whether a result URL can feed the next task directly.
 
-## Spikes 2-5
-Blocked on images (sample shopper, garments, accessories). Not run. Units spent so far: 0.
+## Spike 4: tone (Oct 22, 2026)
+
+**Run 1, face-a** (AI-generated studio portrait, medium tone, black hair). Works: **20 units**, **10.2 s** end to end. The File API took 1.0 s and task creation 0.3 s, then 3 polls (running, running, success).
+
+- Poll path confirmed: `GET /s2s/v2.0/task/skin-tone-analysis/{task_id}` returns `data.task_status` (`running` | `success` | `error`), `data.results` and `data.error`.
+- Request body that works: `{"src_file_id": "..."}` (no strictness level set, so the default `high` applies).
+- Result, all fields:
+  ```json
+  { "color": { "skin_color": "#b08568", "lip_color": "#b56d6e", "eye_color": "#2a1d1b", "eye_color_name": "Brown",
+               "eyebrow_color": "#3e3834", "hair_color": "#FAF0BE", "hair_color_name": "Blonde" },
+    "face_quality": { "has_face": true, "area": "good", "frontal": "good", "lighting": "good", "faceangle": "good" } }
+  ```
+- **No undertone, season or depth field.** The API returns colours only, so `colorMatch` derives them. Skin #b08568 is CIELAB L 59.0, a 12.6, b 22.0: hue angle 60.2°, ITA 22.2° ("intermediate" depth band). Undertone comes from the hue angle (higher is more golden, so warmer), depth from ITA, and contrast from skin L against eyebrow L.
+- **Hair colour is wrong:** it returned Blonde #FAF0BE for clearly black hair. Don't use `hair_color`. Use `eyebrow_color` (#3e3834, correct) as the dark-feature reference for contrast.
+- `face_quality` gives a verdict per check (area, frontal, lighting, faceangle). Map these to the photo-guidance messages.
+- Output is JSON only, with no image, so the JSON is all we store.
+
+**Run 2, face-b** (Gemini image, similar medium tone): not run yet, waiting for the go-ahead (20 units).
+
+## Spikes 2, 3, 5
+Blocked on garment and accessory images.
+
+**Units spent:** 20. **Balance (Oct 22):** 980 + 40.
