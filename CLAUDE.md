@@ -50,8 +50,8 @@ This build window overlaps Amazon (Oct 23), GitLab (Oct 27) and Nebius (Oct 30).
 ## 1. How judges experience this project
 
 1. They open the README. First screen: a looping GIF of a shopper going from selfie to complete look, the live demo link, and a "Try it in a minute" box:
-   1. Open sample shopper Ananya (warm tone, wedding guest) — full replay
-   2. Open sample shopper Meera (cool tone, Diwali) — full replay
+   1. Open sample shopper Ananya (medium skin tone, wedding guest) — full replay
+   2. Open sample shopper Meera (light skin tone, Diwali) — full replay
    3. Open the X-ray view of one look
    4. Open the story page (`/present`)
    5. Try it with your own photo (live, capped)
@@ -102,7 +102,7 @@ Core path = photo → tone → one outfit try-on → one accessory layer → loo
 Build all three; they are cheap here and Technological Implementation breaks ties.
 
 - **Step rail:** Photo → Colours → Outfit → Jewellery → Dupatta → Makeup. Each step lights up only when its real YouCam task returns.
-- **X-ray panel ("how this look was built"):** for each step, the YouCam feature name, the parameters sent (no keys), task id, time taken and units spent, in plain language ("Colour tone analysis read a warm undertone; we matched it to maroon and mustard").
+- **X-ray panel ("how this look was built"):** for each step, the YouCam feature name, the parameters sent (no keys), task id, time taken and units spent, in plain language ("Colour tone analysis measured a medium skin tone, #b78565; we picked maroon and mustard because they stand out clearly against it, and skipped the beige set because it would blend in").
 - **Cost receipt:** units for this look, and units saved by cache hits.
 
 README:
@@ -169,7 +169,8 @@ README:
 
 Tool-calling agent on the server (reuse the WebMCP stylist tool contracts where they fit): `get_tone_profile`, `search_catalog`, `try_on`, `add_accessory`, `finalize_look`.
 
-- Colour matching is deterministic: `colorMatch` scores items from the tone JSON and `dominantColors` (contrast, warm/cool harmony). The model only words the explanation.
+- Colour matching is deterministic and built on **depth and contrast**, the things YouCam actually measures: `colorMatch` scores items from `skin_color` and `lip_color` and each item's `dominantColors` (wash-out penalty when a colour sits close to the skin, lightness contrast set by depth, chroma). The model only words the explanation. Details in `docs/plan.md` §4.
+- Never call a shopper "warm" or "cool": spike 4 showed the analyzer doesn't measure undertone, so that claim would be ours, not YouCam's. Ignore `hair_color` and `eyebrow_color` (unreliable, see `SPIKES.md`).
 - Never comment on skin conditions or attractiveness. Tone is used only to suggest colours ("this shade tends to stand out against your tone").
 - Every tool call feeds the X-ray panel.
 
