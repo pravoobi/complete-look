@@ -68,14 +68,21 @@ Fresh repo. Next.js 16 (App Router) + TypeScript + Tailwind 4, Vitest, tsx. No c
 |---|---|---|---|---|---|---|---|---|
 | face-a | #b08568 | 59.0 | 12.6 | 22.0 | 60.2° | 22.2° (tan) | 24.0 | #b56d6e |
 | face-c | #b48c6f | 61.3 | 11.2 | 21.3 | 62.3° | 28.0° (tan/intermediate edge) | 37.4 | #c77979 |
+| face-d | #b78565 | 59.7 | 15.2 | 24.8 | 58.5° | 21.4° (tan) | 24.0 | #b86165 |
 
 - The analyzer picks up a small lightness shift on the same face (ITA +5.8°), so readings aren't just noise. Both read warm (hue about 60°), so we still haven't seen a cool or deep result.
 - **Hair is `#FAF0BE` "Blonde" again, byte for byte.** It looks like a fallback value when hair detection fails, not a reading. Treat `#FAF0BE` as "unknown".
 - Eyebrow colour moved more than skin (L 24 to 37): don't lean hard on it for contrast scoring.
 
-**Run 3, face-b** (Gemini image): not run. Next tone runs should use a clearly cool face and a clearly deep face, so we can check that `colorMatch` separates shoppers.
+**Run 3, face-d** (ChatGPT image, a different woman, Oct 22): **20 units, 10.6 s**. Slightly redder and more saturated than face-a (hue 58.5°, chroma 29), same depth band.
+
+- All three ChatGPT faces sit in one narrow band: L 59–61, hue 58–62°, ITA 21–28°. Prompts like "South Asian woman" produce nearly the same skin tone every time, so three samples would get near-identical colour suggestions.
+- **Eyebrow is `#3e3834` on two different faces** (a and d), exactly. Eyebrow colour seems to snap to a small set of values. Keep it out of scoring, or use it only as a coarse light/dark flag.
+- Hair `#FAF0BE` "Blonde" on 3 of 3 runs, so it's a fallback value.
+
+**Run 4, face-b** (Gemini image): not run. Next tone runs should use a clearly cool face and a clearly deep face, so we can check that `colorMatch` separates shoppers.
 
 ## Spikes 2, 3, 5
 Blocked on garment and accessory images.
 
-**Units spent:** 40. **Balance (Oct 22):** 960 + 40.
+**Units spent:** 60. **Balance (Oct 22):** 940 + 40.
