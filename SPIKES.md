@@ -69,6 +69,7 @@ Fresh repo. Next.js 16 (App Router) + TypeScript + Tailwind 4, Vitest, tsx. No c
 | face-a | #b08568 | 59.0 | 12.6 | 22.0 | 60.2° | 22.2° (tan) | 24.0 | #b56d6e |
 | face-c | #b48c6f | 61.3 | 11.2 | 21.3 | 62.3° | 28.0° (tan/intermediate edge) | 37.4 | #c77979 |
 | face-d | #b78565 | 59.7 | 15.2 | 24.8 | 58.5° | 21.4° (tan) | 24.0 | #b86165 |
+| face-e | #b59177 | 62.8 | 9.8 | 18.9 | 62.6° | 34.2° (intermediate) | 37.4 | #c7757b |
 
 - The analyzer picks up a small lightness shift on the same face (ITA +5.8°), so readings aren't just noise. Both read warm (hue about 60°), so we still haven't seen a cool or deep result.
 - **Hair is `#FAF0BE` "Blonde" again, byte for byte.** It looks like a fallback value when hair detection fails, not a reading. Treat `#FAF0BE` as "unknown".
@@ -80,9 +81,19 @@ Fresh repo. Next.js 16 (App Router) + TypeScript + Tailwind 4, Vitest, tsx. No c
 - **Eyebrow is `#3e3834` on two different faces** (a and d), exactly. Eyebrow colour seems to snap to a small set of values. Keep it out of scoring, or use it only as a coarse light/dark flag.
 - Hair `#FAF0BE` "Blonde" on 3 of 3 runs, so it's a fallback value.
 
-**Run 4, face-b** (Gemini image): not run. Next tone runs should use a clearly cool face and a clearly deep face, so we can check that `colorMatch` separates shoppers.
+**Free pre-check** (`scripts/skin-precheck.mjs`, 0 units): it averages two cheek patches with sharp and converts to Lab. It reads brighter and redder than the API (cheek highlight and flush), but it **ranked face-a, c and d in the same order as the API** on both lightness and hue, so it works as a filter before spending 20 units.
+
+**Run 4, face-e** (ChatGPT, prompted "fair, cool-toned skin with pink undertones, rosy cheeks", Oct 22): **20 units, 10.0 s**.
+
+- The pre-check read her cheeks as clearly pink (hue 22.5° against 43–56° for the others). **The API did not:** skin hue 62.6°, as golden as the rest. It only registered her as lighter (ITA 34.2°, intermediate).
+- Across 4 faces the API's skin hue spans only 58.5–62.6°, while ITA spans 21.4–34.2°. **`skin_color` carries depth, not undertone.** A warm/cool split built on it would be invented by us, not read by YouCam.
+- Eyebrow `#5b575a` again (faces c and e), so eyebrow values come from a small fixed set. Hair `#FAF0BE` on 4 of 4 runs.
+
+**face-f** (prompted "deep, dark brown skin"): not run. The pre-check read the same lightness as face-a (L 70.3 for both), so it would likely land in the same band. Regenerate it darker before spending 20 units.
+
+**Run 5, face-b** (Gemini image): not run. Next tone runs should use a clearly cool face and a clearly deep face, so we can check that `colorMatch` separates shoppers.
 
 ## Spikes 2, 3, 5
 Blocked on garment and accessory images.
 
-**Units spent:** 60. **Balance (Oct 22):** 940 + 40.
+**Units spent:** 80. **Balance (Oct 22):** 920 + 40.
