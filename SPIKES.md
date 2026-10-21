@@ -57,14 +57,25 @@ Fresh repo. Next.js 16 (App Router) + TypeScript + Tailwind 4, Vitest, tsx. No c
                "eyebrow_color": "#3e3834", "hair_color": "#FAF0BE", "hair_color_name": "Blonde" },
     "face_quality": { "has_face": true, "area": "good", "frontal": "good", "lighting": "good", "faceangle": "good" } }
   ```
-- **No undertone, season or depth field.** The API returns colours only, so `colorMatch` derives them. Skin #b08568 is CIELAB L 59.0, a 12.6, b 22.0: hue angle 60.2°, ITA 22.2° ("intermediate" depth band). Undertone comes from the hue angle (higher is more golden, so warmer), depth from ITA, and contrast from skin L against eyebrow L.
+- **No undertone, season or depth field.** The API returns colours only, so `colorMatch` derives them. Skin #b08568 is CIELAB L 59.0, a 12.6, b 22.0: hue angle 60.2°, ITA 22.2° ("tan" band in the standard ITA scale: >55 very light, 41–55 light, 28–41 intermediate, 10–28 tan, -30–10 brown, < -30 dark). Undertone comes from the hue angle (higher is more golden, so warmer), depth from ITA, and contrast from skin L against eyebrow L.
 - **Hair colour is wrong:** it returned Blonde #FAF0BE for clearly black hair. Don't use `hair_color`. Use `eyebrow_color` (#3e3834, correct) as the dark-feature reference for contrast.
 - `face_quality` gives a verdict per check (area, frontal, lighting, faceangle). Map these to the photo-guidance messages.
 - Output is JSON only, with no image, so the JSON is all we store.
 
-**Run 2, face-b** (Gemini image, similar medium tone): not run yet, waiting for the go-ahead (20 units).
+**Run 2, face-c** (ChatGPT image, Oct 22). It's visibly the same generated woman as face-a, a little lighter. **20 units, 10.0 s**, same 3-poll pattern.
+
+| | skin | L | a | b | hue | ITA | eyebrow L | lip |
+|---|---|---|---|---|---|---|---|---|
+| face-a | #b08568 | 59.0 | 12.6 | 22.0 | 60.2° | 22.2° (tan) | 24.0 | #b56d6e |
+| face-c | #b48c6f | 61.3 | 11.2 | 21.3 | 62.3° | 28.0° (tan/intermediate edge) | 37.4 | #c77979 |
+
+- The analyzer picks up a small lightness shift on the same face (ITA +5.8°), so readings aren't just noise. Both read warm (hue about 60°), so we still haven't seen a cool or deep result.
+- **Hair is `#FAF0BE` "Blonde" again, byte for byte.** It looks like a fallback value when hair detection fails, not a reading. Treat `#FAF0BE` as "unknown".
+- Eyebrow colour moved more than skin (L 24 to 37): don't lean hard on it for contrast scoring.
+
+**Run 3, face-b** (Gemini image): not run. Next tone runs should use a clearly cool face and a clearly deep face, so we can check that `colorMatch` separates shoppers.
 
 ## Spikes 2, 3, 5
 Blocked on garment and accessory images.
 
-**Units spent:** 20. **Balance (Oct 22):** 980 + 40.
+**Units spent:** 40. **Balance (Oct 22):** 960 + 40.
