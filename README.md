@@ -4,7 +4,7 @@
 
 **One photo. Your colours. The whole outfit.** Built on YouCam APIs for Indian ethnic wear: YouCam measures your colours, a stylist agent picks outfits that stand out against them, and the outfit, jewellery and a lip shade matched to the outfit are tried on your photo, one layer on top of the other.
 
-**Live demo:** `LIVE_URL` · **Sample shopper:** `LIVE_URL/look/ananya` · **Video:** `VIDEO_URL` · [How it's built](#how-its-built)
+**Live demo:** [complete-look.vercel.app](https://complete-look.vercel.app) · **Sample shopper:** [complete-look.vercel.app/look/ananya](https://complete-look.vercel.app/look/ananya) · **Video:** `VIDEO_URL` · [How it's built](#how-its-built)
 
 | Before | Outfit | + Jewellery | + Lip colour |
 |---|---|---|---|
@@ -14,11 +14,11 @@
 
 ## Try it in a minute
 
-1. Open sample shopper **Ananya** (medium skin depth, wedding guest): `LIVE_URL/look/ananya`. It replays a real recorded run, so there's no sign-up, no keys and no units spent.
-2. Open **Kavya** (deep skin depth, office ethnic): `LIVE_URL/look/kavya`. The same catalog ranks differently: the beige set that comes last for Ananya comes second for Kavya.
-3. Open **Meera** (light skin depth, Diwali): `LIVE_URL/look/meera`.
+1. Open sample shopper **Ananya** (medium skin depth, wedding guest): [complete-look.vercel.app/look/ananya](https://complete-look.vercel.app/look/ananya). It replays a real recorded run, so there's no sign-up, no keys and no units spent.
+2. Open **Kavya** (deep skin depth, office ethnic): [complete-look.vercel.app/look/kavya](https://complete-look.vercel.app/look/kavya). The same catalog ranks differently: the beige set that comes last for Ananya comes second for Kavya.
+3. Open **Meera** (light skin depth, Diwali): [complete-look.vercel.app/look/meera](https://complete-look.vercel.app/look/meera).
 4. On any look, scroll to **X-ray** to see each YouCam call: the feature, exactly what we sent, the task id, time and units.
-5. Try it with your own photo: `LIVE_URL/try`. This is live and capped (see [Cost engineering](#cost-engineering)).
+5. Try it with your own photo: [complete-look.vercel.app/try](https://complete-look.vercel.app/try). This is live and capped (see [Cost engineering](#cost-engineering)).
 
 ## The problem
 
@@ -82,7 +82,7 @@ We never tell a shopper she is "warm" or "cool": the analyzer doesn't measure un
 - **v0 → v1 (same shopper, real try-ons):** picked by category only, Ananya gets the beige chikankari set, which sits ΔE 18 from her skin and blends in. Tone-matched, she gets the emerald anarkali (ΔE 47). Both are shown on her sample page. [`docs/evidence.md`](docs/evidence.md)
 - **Same catalog, different shoppers:** beige is last for Ananya (medium) and Meera (light) but second for Kavya (deep), where it's clearly lighter than her skin.
 - **Failure → recovery:** a jewellery layer that fails is skipped and the look keeps building on the last good image, so the outfit is never lost. The stylist's guardrail rejected a first `finalize_look` and Claude corrected it.
-- **Measured (Nov 1, 2026):** tone analysis 10–11 s; clothes 14–23 s; earrings 7–12 s; necklace 5–13 s; lip 9–15 s. One complete look on a new photo is **28 units and about a minute**. A replayed sample costs **0 units**.
+- **Measured (Nov 1, 2026):** tone analysis 10–11 s; clothes 14–23 s; earrings 7–12 s; necklace 5–13 s; lip 9–15 s. One complete look on a new photo is **28 units and 48.6 s of YouCam time** (measured on the live site). A replayed sample costs **0 units**.
 
 ## Cost engineering
 
