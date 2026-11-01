@@ -16,10 +16,10 @@ Project instructions for Claude Code, built on the hackathon template. Rename to
 
   | Criterion | Weight | Proven by |
   |---|---|---|
-  | Technological Implementation: how thoroughly and skilfully YouCam APIs are integrated; working, non-trivial code; clear consumer or eCommerce value | 25% | Five YouCam try-on features chained in one flow after tone analysis; X-ray panel (§3); feature map table in README; video 1:30–2:15 |
+  | Technological Implementation: how thoroughly and skilfully YouCam APIs are integrated; working, non-trivial code; clear consumer or eCommerce value | 25% | Four YouCam try-on features (clothes, earrings, necklace, makeup) chained in one flow after tone analysis, plus a Claude stylist agent; X-ray panel (§3); feature map table in README; video 1:30–2:15 |
   | Design: a complete, coherent product experience, not a proof of concept | 25% | Three-step flow with step rail, before/after slider, layer toggles, look card on a product listing page; video 0:30–1:30 |
   | Potential Impact: a credible, specific case for a real problem for a real audience, and the demo actually addresses it | 25% | README problem section; the colour-mismatch → corrected look story; one measured number (§2) |
-  | Quality of the Idea: creative, non-obvious use of YouCam APIs, and genuine understanding of the problem space | 25% | Tone-grounded outfit choice plus layered jewellery, dupatta and makeup for Indian ethnic wear; "The obvious competitor" below |
+  | Quality of the Idea: creative, non-obvious use of YouCam APIs, and genuine understanding of the problem space | 25% | Tone-grounded outfit choice plus layered jewellery and makeup for Indian ethnic wear; "The obvious competitor" below |
 
   Ties are broken on Technological Implementation first, so that row matters most.
 - **Side prizes to target:** none. Women in Tech and Rising Star (student) awards don't apply. A project can win only one prize: 1st $2,500, 2nd $1,000, 3rd $500. Separately, sharing the demo video on social media earns up to 2 × 500 bonus API units (tag @YouCam API, name the APIs used, add "Received API credits for sharing", keep it public 30 days, claim through the form before the deadline; the posting account must have been created before Sep 29, 2026).
@@ -101,7 +101,7 @@ Core path = photo → tone → one outfit try-on → one accessory layer → loo
 
 Build all three; they are cheap here and Technological Implementation breaks ties.
 
-- **Step rail:** Photo → Colours → Outfit → Jewellery → Dupatta → Makeup. Each step lights up only when its real YouCam task returns.
+- **Step rail:** Photo → Colours → Outfit → Jewellery → Makeup. (Dupatta dropped Nov 1: Scarf try-on restyles the whole image, see `SPIKES.md` spike 3.) Each step lights up only when its real YouCam task returns.
 - **X-ray panel ("how this look was built"):** for each step, the YouCam feature name, the parameters sent (no keys), task id, time taken and units spent, in plain language ("Colour tone analysis measured a medium skin tone, #b78565; we picked maroon and mustard because they stand out clearly against it, and skipped the beige set because it would blend in").
 - **Cost receipt:** units for this look, and units saved by cache hits.
 
@@ -120,7 +120,7 @@ README:
   - `https://mcp-api-01.makeupar.com/mcp/beauty`: `AI-Facial-Color-Tones-Analyzer`, `AI-Makeup-Virtual-Try-On`, `AI-Makeup-Virtual-Try-On-Pattern-Name`, `AI-Look-Virtual-Try-On`, `AI-Skin-Analysis`, `AI-Fitzpatrick-Skin-Type-Analysis`.
   - Scarf, hat, shoes and bag try-on need an explicit `gender` parameter.
   - `Get-Upload-API-Info` echoes request headers back, including the Bearer key. Never save or paste its raw output.
-- **Costs per result image (from `Get-Feature-Cost`, Oct 15):** Facial Color Tones Analyzer **20**; Clothes 2; Earrings 1 (single) or 2 (stacked); Necklace 1; Scarf 2; Makeup 1; Look (preset template) 2. A complete look is about 27 units, and tone analysis is most of it, so cache tone results by image hash.
+- **Costs per result image (from `Get-Feature-Cost`, Oct 15):** Facial Color Tones Analyzer **20**; Clothes 2; Earrings 1 (single) or 2 (stacked); Necklace 1; Scarf 2; Makeup 1; Look (preset template) 2. A complete look measured 28 units on Nov 1 (tone 20, two outfits 4, earrings pair 2, necklace 1, lip 1), and tone analysis is most of it, so cache tone results by image hash.
 - **Makeup try-on** (`/s2s/v2.0/task/makeup-vto`, 1 unit): takes `effects[]` with explicit hex colours per category (`lip_color`, `blush`, `eye_shadow`, `eye_liner`, and others). This suits deterministic matching: `colorMatch` picks the lip and blush hex from the tone result and the outfit colours. Pattern names come from `AI-Makeup-Virtual-Try-On-Pattern-Name`.
 - **Budget:** 1,000 free units from the hackathon redeem code (expire 2027-01-12) plus 40 more, plus the social sharing bonus.
 - Uploads and results expire (File Retention Period page): copy every result we keep into our own storage.
@@ -141,7 +141,7 @@ README:
 ### Product and design requirements
 
 - First screen states the value: "One photo. Your colours. The whole outfit."
-- Before/after slider on the try-on result; layer toggles for jewellery, dupatta and makeup.
+- Before/after slider on the try-on result; layer toggles for jewellery and makeup.
 - Mobile-first; camera capture on phones.
 - Privacy line next to the upload control: photos go to YouCam for processing and are deleted after the session unless the shopper saves a look. Implement that deletion.
 - Photo guidance (lighting, framing) from the API's image requirements, with a specific, friendly message when a photo is rejected.
@@ -271,8 +271,8 @@ Drawn from recent winners (Snap2Shelf at Cloudinary/HackIndia 2026; LORE, GraphD
 |---|---|
 | 0:00–0:20 | A shopper with a cousin's wedding next week, scrolling lehengas, unsure if mustard works on her and what jewellery goes with it. |
 | 0:20–0:30 | The one sentence. |
-| 0:30–1:30 | One complete flow on a phone: photo → colours → two outfit suggestions with reasons → on her → jewellery → dupatta → lip colour matched to the outfit → look card on the product page. Something working on screen by 0:45. |
-| 1:30–2:15 | The failure → recovery moment, then the X-ray panel naming each YouCam API (Facial Color Tones Analyzer, Clothes, Earrings/Necklace, Scarf, Makeup Virtual Try-On) and the units per look. |
+| 0:30–1:30 | One complete flow on a phone: photo → colours → two outfit suggestions with reasons → on her → jewellery → lip colour matched to the outfit → look card on the product page. Something working on screen by 0:45. |
+| 1:30–2:15 | The failure → recovery moment, then the X-ray panel naming each YouCam API (Facial Color Tones Analyzer, Clothes, Earrings, Necklace, Makeup Virtual Try-On) and the units per look. |
 | 2:15–2:45 | The before/after number and who it helps: shoppers, and sellers who lose sales to hesitation and returns. |
 | 2:45–3:00 | What's not built yet (honestly) and the live link. |
 
@@ -294,7 +294,7 @@ Keep the platform's template headings.
 - **Challenges:** real problems and fixes (layering quality, garment categories, async tasks).
 - **Accomplishments:** the measured numbers.
 - **What we learned / What's next:** includes YouCam limits hit.
-- **Built with:** exact names: YouCam AI Clothes Virtual Try-On, AI Earrings Virtual Try-On, AI Necklace Virtual Try-On, AI Scarf Virtual Try-On, AI Makeup Virtual Try-On, AI Facial Color Tones Analyzer, plus the stack.
+- **Built with:** exact names: YouCam AI Clothes Virtual Try-On, AI Earrings Virtual Try-On, AI Necklace Virtual Try-On, AI Makeup Virtual Try-On, AI Facial Color Tones Analyzer, plus the stack.
 - **Try it out:** live demo, then the repo, then the video.
 - **Gallery:** captioned screenshots: each step, X-ray panel, architecture, passing tests.
 

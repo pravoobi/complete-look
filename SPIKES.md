@@ -139,3 +139,5 @@ Chain on the lehenga result, each output fed in as the next input (downloaded an
 Tone 20 (cached per image) + outfit 2 + earrings pair 2 + necklace 1 + lip 1 = **26 units** for a new photo, **6 units** for another outfit on a cached photo. Samples reuse the tone JSON already recorded (faces d, e, h), so each sample costs 6 units to record.
 
 **Units spent:** 100 (5 tone runs) + 16 (spikes 2 and 3, Nov 1). **Balance (Nov 1):** 884 + 40.
+
+**Recording and first live run (Nov 1, 2026):** 7 units lost to a bad makeup payload (missing `src_file_id`, fixed and tested), 26 units recording the 3 samples, 28 units for one live end-to-end look in the browser. **Balance (Nov 1):** 823 + 40.

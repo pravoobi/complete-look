@@ -7,6 +7,7 @@
 - **Oct 22, 2026:** tone analysis, 10.0–11.2 s end to end over 5 runs (faces a, c, d, e, h), 20 units each.
 - **Oct 22, 2026:** a free local pre-check (cheek patches, sharp) ranked all 5 faces in the same lightness order as the paid analyzer. It filtered out 2 faces that would have wasted 40 units.
 
+- **Nov 1, 2026:** one complete live look in the browser (tone, stylist, 2 outfits in parallel, earrings, necklace, lip): 28 units, about a minute. Replayed samples: 0 units.
 - **Nov 1, 2026:** clothes try-on 15.0–22.7 s (5 runs, 2 units each); earrings pair 12.1 s (2 units); necklace 12.7 s (1); lip colour 14.8 s (1). Outfit + jewellery + lip on a cached photo: about 55 s and 6 units, run in sequence.
 
 ## Lessons we paid for
