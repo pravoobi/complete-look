@@ -10,7 +10,7 @@ Paste section by section into the Devpost form. Fields marked **[you]** need you
 
 **Thumbnail:** side by side, Ananya before (`public/samples/ananya/photo.jpg`) and after (`public/samples/ananya/layer-lip.jpg`), with "Before" and "Complete look" labels. Make it readable at small size.
 
-**Video:** **[you]** YouTube link
+**Video:** https://www.youtube.com/watch?v=WuyJSH_5zQE
 
 ---
 
@@ -109,7 +109,7 @@ YouCam AI Facial Color Tones Analyzer · YouCam AI Clothes Virtual Try-On · You
 - Live demo: https://complete-look.vercel.app
 - Sample shopper (replay, no sign-up): https://complete-look.vercel.app/look/ananya
 - Repo: https://github.com/pravoobi/complete-look
-- Video: **[you]**
+- Video: https://www.youtube.com/watch?v=WuyJSH_5zQE
 
 Testing note for judges: the three sample shoppers are always open and spend nothing. The live upload at `/try` makes real YouCam calls (28 units per look), so it is capped at one complete look per visitor per day, with a global daily cap. If the cap is reached, the page says so and links to the samples.
 
@@ -117,16 +117,19 @@ Testing note for judges: the three sample shoppers are always open and spend not
 
 ## Gallery (screenshots and captions)
 
-Take these on the phone or a narrow browser window from the live site:
+Generated 3:2 cards (1800×1200 JPG) from phone-size screenshots of the live site, uploaded in this order. `00-thumbnail` is the project thumbnail.
 
-1. **Landing page:** "One photo. Your colours. The whole outfit."
-2. **Your colours:** "YouCam Facial Color Tones Analyzer measures skin and lip colour; outfits are ranked by how clearly they stand out."
-3. **Ranked outfits with the stylist's reasons:** "A Claude stylist agent picks 2 of the top 3, using only the measured reasons."
-4. **Before/after slider on the outfit:** "YouCam AI Clothes Virtual Try-On."
-5. **+ Jewellery:** "Earrings and Necklace Try-On, layered on the outfit result."
-6. **+ Lip colour:** "Makeup Try-On with a lip shade matched to the outfit."
-7. **Without vs with colour matching:** "Same shopper, both real try-ons: beige blends in, emerald stands out."
-8. **Complete the look card:** "Every piece on one product page, with ₹ prices."
-9. **X-ray panel:** "Every YouCam call: feature, what we sent, task id, time and units."
-10. **Architecture diagram:** the mermaid diagram from the README, as a screenshot.
-11. **Passing tests:** `npm test` showing 19 passed.
+1. **01-landing:** One photo. Your colours. The whole outfit.
+2. **02-layered-chain:** Each YouCam result is the next task's input: clothes → earrings → necklace → makeup.
+3. **03-colours:** YouCam AI Facial Color Tones Analyzer measures skin and lip; outfits ranked by how clearly they stand out.
+4. **04-outfit-try-on:** A Claude stylist picks two; YouCam AI Clothes Virtual Try-On puts both on her.
+5. **05-jewellery-and-lip:** Earrings, Necklace and Makeup Virtual Try-On, as layer toggles.
+6. **06-why-colour-matters:** Same shopper, both real try-ons: beige blends in, emerald stands out.
+7. **07-same-catalog-different-shopper:** Beige ranks last for Ananya and second for Kavya.
+8. **08-complete-the-look:** The whole look on one product page, with ₹ prices.
+9. **09-three-sample-shoppers:** Light, medium and deep skin; three occasions; all replays of real runs.
+10. **10-live-try:** Live on a new photo: under a minute, 28 YouCam units.
+11. **11-xray:** Every YouCam call: feature, what we sent, task id, time and units. (65.9 s is the recorded Ananya run; 48.6 s is the live production run.)
+12. **12-architecture:** One flow, five YouCam APIs, each result feeding the next.
+13. **13-measured-numbers:** 28 units and 48.6 s per look; 0 units per sample replay.
+14. **14-tests:** 19 tests, no network, no units.
