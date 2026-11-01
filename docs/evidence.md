@@ -7,7 +7,13 @@
 - **Oct 22, 2026:** tone analysis, 10.0–11.2 s end to end over 5 runs (faces a, c, d, e, h), 20 units each.
 - **Oct 22, 2026:** a free local pre-check (cheek patches, sharp) ranked all 5 faces in the same lightness order as the paid analyzer. It filtered out 2 faces that would have wasted 40 units.
 
+- **Nov 1, 2026:** clothes try-on 15.0–22.7 s (5 runs, 2 units each); earrings pair 12.1 s (2 units); necklace 12.7 s (1); lip colour 14.8 s (1). Outfit + jewellery + lip on a cached photo: about 55 s and 6 units, run in sequence.
+
 ## Lessons we paid for
+
+- **Nov 1, 2026, scarf try-on is generative, not a layer.** AI Scarf V2 on our lehenga result replaced the outfit (white dress), added a hat and a lakeside background, and turned the dupatta into a neckerchief. The schema warned of this ("style … to control outfit and background style"). We dropped the dupatta step instead of shipping a result that loses the outfit.
+- **Nov 1, 2026, makeup try-on also retouches skin.** Lip colour alone came back with visible skin smoothing and brightening. We show this as-is and mention it, since the look card shouldn't imply the shopper's skin changed.
+- **Nov 1, 2026, a headshot is enough for clothes try-on.** All 5 garments (including the saree) dressed the visible neckline on a head-and-shoulders photo without touching the face.
 
 - **Oct 22, 2026, tone analysis has no undertone field.** `AI-Facial-Color-Tones-Analyzer` returns hex colours (skin, lip, eye, eyebrow, hair) and face-quality checks, nothing more. We derive undertone and depth ourselves from `skin_color` (CIELAB hue angle and ITA).
 - **Oct 22, 2026, hair colour misread.** On face-a (black hair), the analyzer returned `hair_color_name: "Blonde"` (#FAF0BE). face-c returned exactly the same value, so `#FAF0BE` looks like a fallback when hair detection fails. face-d returned it as well (3 of 3). We ignore `hair_color`.

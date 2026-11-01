@@ -104,7 +104,38 @@ Fresh repo. Next.js 16 (App Router) + TypeScript + Tailwind 4, Vitest, tsx. No c
 
 **face-b** (Gemini image): not run, and no longer needed. Next tone runs should use a clearly cool face and a clearly deep face, so we can check that `colorMatch` separates shoppers.
 
-## Spikes 2, 3, 5
-Blocked on garment and accessory images.
+## Spike 2: garments (Nov 1, 2026)
 
-**Units spent:** 100 (5 tone runs). **Balance (Oct 22):** 900 + 40.
+Script: `scripts/spike-tryon.mjs` (generic File API → task → poll → save result). Source: face-d (Ananya, a **head-and-shoulders portrait**). All `cloth-v4`, `garment_category: full_body`, body `{src_file_id, ref_file_id, garment_category}`.
+
+| Garment | Result | Time | Units |
+|---|---|---|---|
+| Kurta set, mustard | Pass: print, placket and neckline match | 16.8 s | 2 |
+| Anarkali, emerald | Pass: gold neckline embroidery kept | 22.7 s | 2 |
+| Lehenga, maroon velvet | Pass: blouse embroidery kept | 16.3 s | 2 |
+| Saree, royal blue | **Pass**: blouse plus pallu over the shoulder | 15.0 s | 2 |
+| Chikankari set, beige | Pass, and visibly blends into her skin (the v0 example) | 16.7 s | 2 |
+
+- A headshot works: the face, hair (hair stays in front of the garment) and background are unchanged, and only the visible neckline area is dressed. So the samples show the top of each outfit, not the full length. Say so in the README.
+- Sarees work, so all four categories stay in the catalog.
+- Result: `data.results` holds one URL to a JPEG at the source resolution.
+
+## Spike 3: layering (Nov 1, 2026)
+
+Chain on the lehenga result, each output fed in as the next input (downloaded and re-uploaded):
+
+| Layer | Feature | Body | Result | Time | Units |
+|---|---|---|---|---|---|
+| Earrings (pair) | `2d-vto/earring` | `{source_info:{name:src_id}, object_infos:[{name:ref_id, parameter:{earring_is_right_ear:true}}, {…false}], src_file_id, ref_file_ids:[ref_id]}` | Pass: both ears, sensible size, background removed | 12.1 s | 2 |
+| Necklace | `2d-vto/necklace` | same shape, no parameters | Pass: sits on the collarbone, no visible loss to face or outfit | 12.7 s | 1 |
+| Dupatta | `scarf` | `{gender:"female", src_file_id, ref_file_id}` | **Fail for layering**: generative restyle. Replaced the lehenga with a white dress, added a hat and a lakeside background, and turned the dupatta into a neckerchief. Output 896×1152, not the source size | 23.0 s | 2 |
+| Lip colour | `makeup-vto` | `{version:"1.0", effects:[{category:"lip_color", palettes:[{color:"#9a2b3c", colorIntensity:60, texture:"matte"}], shape:{name:"original"}, style:{type:"full"}, morphology:{fullness:0, wrinkless:0}}]}` | Pass: clean maroon lip, outfit and jewellery unchanged. Side effect: noticeable skin smoothing and brightening | 14.8 s | 1 |
+
+- **Decision: drop the dupatta (scarf) step.** Scarf V2 doesn't layer onto an existing outfit. The flow becomes Photo → Colours → Outfit → Jewellery → Makeup (4 try-on features + tone = 5 YouCam features).
+- No visible quality loss across the 3 good layers (earrings → necklace → makeup).
+
+## Spike 5: cost per look (Nov 1, 2026)
+
+Tone 20 (cached per image) + outfit 2 + earrings pair 2 + necklace 1 + lip 1 = **26 units** for a new photo, **6 units** for another outfit on a cached photo. Samples reuse the tone JSON already recorded (faces d, e, h), so each sample costs 6 units to record.
+
+**Units spent:** 100 (5 tone runs) + 16 (spikes 2 and 3, Nov 1). **Balance (Nov 1):** 884 + 40.
