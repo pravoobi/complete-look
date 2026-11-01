@@ -1,0 +1,210 @@
+{
+  "id": "kavya",
+  "name": "Kavya",
+  "occasion": "office-ethnic",
+  "aiGenerated": true,
+  "photo": "/samples/kavya/photo.jpg",
+  "recordedAt": "2026-11-01T06:59:31.547Z",
+  "tone": {
+    "taskId": "RepNB28MxagSoPIZU2lnPinrCsvlFoDQvyTKcXi2bp28pPBXclP8qAuBBDTMN4BpaWDS9eILM6KP1umZGeEfHw",
+    "ms": 11162,
+    "units": 20,
+    "recordedAt": "AI-Facial-Color-Tones-Analyzer (skin-tone-analysis), recorded 2026-10-21",
+    "results": {
+      "color": {
+        "eye_color": "#2c2120",
+        "eye_color_name": "Brown",
+        "lip_color": "#673b38",
+        "eyebrow_color": "#3e3834",
+        "skin_color": "#704f38",
+        "hair_color": "#FAF0BE",
+        "hair_color_name": "Blonde"
+      },
+      "face_quality": {
+        "has_face": true,
+        "area": "good",
+        "frontal": "good",
+        "lighting": "good",
+        "faceangle": "good"
+      }
+    }
+  },
+  "profile": {
+    "depth": "deep",
+    "ita": -35.1,
+    "skinHex": "#704f38",
+    "lipHex": "#673b38"
+  },
+  "ranking": [
+    {
+      "outfitId": "kurta-mustard",
+      "score": 1.349,
+      "reasons": [
+        {
+          "rule": "stands-out",
+          "colour": "#d5961b",
+          "deltaE": 34.4,
+          "lightness": "lighter"
+        },
+        {
+          "rule": "rich-colour",
+          "colour": "#d5961b",
+          "chroma": 68
+        }
+      ],
+      "text": "The mustard is clearly lighter than your skin tone and richly coloured, so it stands out against it."
+    },
+    {
+      "outfitId": "chikankari-beige",
+      "score": 1.137,
+      "reasons": [
+        {
+          "rule": "stands-out",
+          "colour": "#d8c2ae",
+          "deltaE": 39.4,
+          "lightness": "lighter"
+        }
+      ],
+      "text": "The beige is clearly lighter than your skin tone, so it stands out against it."
+    }
+  ],
+  "outfits": [
+    {
+      "outfitId": "kurta-mustard",
+      "image": "/samples/kavya/outfit-kurta-mustard.jpg",
+      "step": {
+        "feature": "outfit",
+        "featureName": "AI Clothes Virtual Try-On",
+        "taskId": "6udTAVgViwFXqFwNmPeU1ly1EHV-OGVaHndVa-QTK7rWOV7WQRXSN45xUuxY-ZGzGi4M447Ki6l9hDTl1ySvww",
+        "ms": 16256,
+        "units": 2,
+        "params": {
+          "src_file_id": "<your photo>",
+          "ref_file_id": "<product image>",
+          "garment_category": "full_body"
+        }
+      }
+    },
+    {
+      "outfitId": "chikankari-beige",
+      "image": "/samples/kavya/outfit-chikankari-beige.jpg",
+      "step": {
+        "feature": "outfit",
+        "featureName": "AI Clothes Virtual Try-On",
+        "taskId": "E8mQPNO7QBbVSk-T_x_Ib8PBF6xPzh7ADK2W7d_YP4W64AbLu9Ek64FIAGHU5QgpGi4M447Ki6l9hDTl1ySvww",
+        "ms": 13624,
+        "units": 2,
+        "params": {
+          "src_file_id": "<your photo>",
+          "ref_file_id": "<product image>",
+          "garment_category": "full_body"
+        }
+      }
+    }
+  ],
+  "layers": [
+    {
+      "kind": "earrings",
+      "itemId": "jhumka-gold",
+      "image": "/samples/kavya/layer-earrings.jpg",
+      "step": {
+        "feature": "earrings",
+        "featureName": "AI Earrings Virtual Try-On",
+        "taskId": "Q4WZMEywjMLYYsCrXu_qEoDeDOM3p4Gx2z0SWbT6UYADktynYxcYLVsqdw0pOa_-rsVEnq3ffBAO2Lf_ZLul6Q",
+        "ms": 7089,
+        "units": 2,
+        "params": {
+          "source_info": {
+            "name": "<your photo>"
+          },
+          "object_infos": [
+            {
+              "name": "<product image>",
+              "parameter": {
+                "earring_is_right_ear": true
+              }
+            },
+            {
+              "name": "<product image>",
+              "parameter": {
+                "earring_is_right_ear": false
+              }
+            }
+          ],
+          "src_file_id": "<your photo>",
+          "ref_file_ids": [
+            "<product image>"
+          ]
+        }
+      }
+    },
+    {
+      "kind": "necklace",
+      "itemId": "necklace-kundan-gold",
+      "image": "/samples/kavya/layer-necklace.jpg",
+      "step": {
+        "feature": "necklace",
+        "featureName": "AI Necklace Virtual Try-On",
+        "taskId": "l8cbJFUc2DDwKoxWa4gdO0Yiuh7O4TtDPbTwx0ud1-74piTCeCTffsQTG1t7BtPPrsVEnq3ffBAO2Lf_ZLul6Q",
+        "ms": 5669,
+        "units": 1,
+        "params": {
+          "source_info": {
+            "name": "<your photo>"
+          },
+          "object_infos": [
+            {
+              "name": "<product image>"
+            }
+          ],
+          "src_file_id": "<your photo>",
+          "ref_file_ids": [
+            "<product image>"
+          ]
+        }
+      }
+    },
+    {
+      "kind": "lip",
+      "lipHex": "#68221a",
+      "image": "/samples/kavya/layer-lip.jpg",
+      "step": {
+        "feature": "lip",
+        "featureName": "AI Makeup Virtual Try-On",
+        "taskId": "lx_dZdUs0bmYrtO0WVjt30pZsmXRY-vQzeZZ3t42VuQufXLZE22NZVvmdn9fTRE4d-BTT-LvvMAmKHuvXEbI5Q",
+        "ms": 9274,
+        "units": 1,
+        "params": {
+          "src_file_id": "<your photo>",
+          "version": "1.0",
+          "effects": [
+            {
+              "category": "lip_color",
+              "shape": {
+                "name": "<product image>"
+              },
+              "style": {
+                "type": "full"
+              },
+              "morphology": {
+                "fullness": 0,
+                "wrinkless": 0
+              },
+              "palettes": [
+                {
+                  "color": "#68221a",
+                  "colorIntensity": 60,
+                  "texture": "matte"
+                }
+              ]
+            }
+          ]
+        }
+      }
+    }
+  ],
+  "totals": {
+    "units": 28,
+    "tryOnUnits": 8
+  }
+}

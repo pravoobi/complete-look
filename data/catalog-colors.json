@@ -1,0 +1,90 @@
+{
+  "kurta-mustard": [
+    {
+      "hex": "#d5961b",
+      "share": 0.9
+    }
+  ],
+  "anarkali-emerald": [
+    {
+      "hex": "#143a28",
+      "share": 0.83
+    },
+    {
+      "hex": "#707355",
+      "share": 0.12
+    }
+  ],
+  "lehenga-maroon": [
+    {
+      "hex": "#401012",
+      "share": 0.52
+    },
+    {
+      "hex": "#885742",
+      "share": 0.45
+    }
+  ],
+  "saree-royal-blue": [
+    {
+      "hex": "#161f69",
+      "share": 0.48
+    },
+    {
+      "hex": "#846c63",
+      "share": 0.32
+    },
+    {
+      "hex": "#c1b2a8",
+      "share": 0.11
+    },
+    {
+      "hex": "#0b091a",
+      "share": 0.09
+    }
+  ],
+  "chikankari-beige": [
+    {
+      "hex": "#d8c2ae",
+      "share": 1
+    }
+  ],
+  "jhumka-gold": [
+    {
+      "hex": "#d59b39",
+      "share": 0.71
+    },
+    {
+      "hex": "#eed8b2",
+      "share": 0.29
+    }
+  ],
+  "jhumka-silver": [
+    {
+      "hex": "#8d8a85",
+      "share": 0.72
+    },
+    {
+      "hex": "#d8d7d4",
+      "share": 0.16
+    },
+    {
+      "hex": "#42403c",
+      "share": 0.13
+    }
+  ],
+  "necklace-kundan-gold": [
+    {
+      "hex": "#bc9862",
+      "share": 0.7
+    },
+    {
+      "hex": "#e8e0d1",
+      "share": 0.18
+    },
+    {
+      "hex": "#2e4e37",
+      "share": 0.12
+    }
+  ]
+}

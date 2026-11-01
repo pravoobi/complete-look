@@ -1,0 +1,244 @@
+{
+  "id": "meera",
+  "name": "Meera",
+  "occasion": "diwali",
+  "aiGenerated": true,
+  "photo": "/samples/meera/photo.jpg",
+  "recordedAt": "2026-11-01T06:59:40.691Z",
+  "tone": {
+    "taskId": "rDgWXEkcsFKiNG2CzI4-xU4dw4Y6NoY8wSxr64zi6ls3BoW6rS5CStlptHQMVMzEaWDS9eILM6KP1umZGeEfHw",
+    "ms": 10023,
+    "units": 20,
+    "recordedAt": "AI-Facial-Color-Tones-Analyzer (skin-tone-analysis), recorded 2026-10-21",
+    "results": {
+      "color": {
+        "eye_color": "#423533",
+        "eye_color_name": "Brown",
+        "lip_color": "#c7757b",
+        "eyebrow_color": "#5b575a",
+        "skin_color": "#b59177",
+        "hair_color": "#FAF0BE",
+        "hair_color_name": "Blonde"
+      },
+      "face_quality": {
+        "has_face": true,
+        "area": "good",
+        "frontal": "good",
+        "lighting": "good",
+        "faceangle": "good"
+      }
+    }
+  },
+  "profile": {
+    "depth": "light",
+    "ita": 34.2,
+    "skinHex": "#b59177",
+    "lipHex": "#c7757b"
+  },
+  "ranking": [
+    {
+      "outfitId": "anarkali-emerald",
+      "score": 1.1,
+      "reasons": [
+        {
+          "rule": "stands-out",
+          "colour": "#143a28",
+          "deltaE": 47.5,
+          "lightness": "deeper"
+        }
+      ],
+      "text": "The emerald green is clearly deeper than your skin tone, so it stands out against it."
+    },
+    {
+      "outfitId": "saree-royal-blue",
+      "score": 0.727,
+      "reasons": [
+        {
+          "rule": "stands-out",
+          "colour": "#161f69",
+          "deltaE": 54.1,
+          "lightness": "deeper"
+        },
+        {
+          "rule": "rich-colour",
+          "colour": "#161f69",
+          "chroma": 51
+        },
+        {
+          "rule": "low-contrast",
+          "colour": "#846c63",
+          "deltaE": 15.8
+        }
+      ],
+      "text": "The royal blue is clearly deeper than your skin tone and richly coloured, so it stands out against it."
+    },
+    {
+      "outfitId": "kurta-mustard",
+      "score": -0.2,
+      "reasons": [
+        {
+          "rule": "low-contrast",
+          "colour": "#d5961b",
+          "deltaE": 17.4
+        },
+        {
+          "rule": "rich-colour",
+          "colour": "#d5961b",
+          "chroma": 68
+        }
+      ],
+      "text": "The mustard sits close to your skin tone, so it may blend in rather than stand out."
+    },
+    {
+      "outfitId": "chikankari-beige",
+      "score": -1,
+      "reasons": [
+        {
+          "rule": "washes-out",
+          "colour": "#d8c2ae",
+          "deltaE": 14
+        }
+      ],
+      "text": "The beige sits close to your skin tone, so it may blend in rather than stand out."
+    }
+  ],
+  "outfits": [
+    {
+      "outfitId": "anarkali-emerald",
+      "image": "/samples/meera/outfit-anarkali-emerald.jpg",
+      "step": {
+        "feature": "outfit",
+        "featureName": "AI Clothes Virtual Try-On",
+        "taskId": "RpjVUCUUK_pjF1mKI154l0Awckgze9zJOItasqiL3Ig_r5vGCnC62x2x-H7Uusj_Gi4M447Ki6l9hDTl1ySvww",
+        "ms": 16241,
+        "units": 2,
+        "params": {
+          "src_file_id": "<your photo>",
+          "ref_file_id": "<product image>",
+          "garment_category": "full_body"
+        }
+      }
+    },
+    {
+      "outfitId": "saree-royal-blue",
+      "image": "/samples/meera/outfit-saree-royal-blue.jpg",
+      "step": {
+        "feature": "outfit",
+        "featureName": "AI Clothes Virtual Try-On",
+        "taskId": "cJqdOlkc5RO9dbQ7AXBqxS3kyBZSjAFlGLt5cQGUL04t4AKG8TnS_2zBEXhHlUf4Gi4M447Ki6l9hDTl1ySvww",
+        "ms": 15568,
+        "units": 2,
+        "params": {
+          "src_file_id": "<your photo>",
+          "ref_file_id": "<product image>",
+          "garment_category": "full_body"
+        }
+      }
+    }
+  ],
+  "layers": [
+    {
+      "kind": "earrings",
+      "itemId": "jhumka-gold",
+      "image": "/samples/meera/layer-earrings.jpg",
+      "step": {
+        "feature": "earrings",
+        "featureName": "AI Earrings Virtual Try-On",
+        "taskId": "fMnRtgSXWGQqlKGlYV4kREKfZXMVBX8sABNM7J3p9CB4ys4-0NmtxRuOIO-c-732rsVEnq3ffBAO2Lf_ZLul6Q",
+        "ms": 9671,
+        "units": 2,
+        "params": {
+          "source_info": {
+            "name": "<your photo>"
+          },
+          "object_infos": [
+            {
+              "name": "<product image>",
+              "parameter": {
+                "earring_is_right_ear": true
+              }
+            },
+            {
+              "name": "<product image>",
+              "parameter": {
+                "earring_is_right_ear": false
+              }
+            }
+          ],
+          "src_file_id": "<your photo>",
+          "ref_file_ids": [
+            "<product image>"
+          ]
+        }
+      }
+    },
+    {
+      "kind": "necklace",
+      "itemId": "necklace-kundan-gold",
+      "image": "/samples/meera/layer-necklace.jpg",
+      "step": {
+        "feature": "necklace",
+        "featureName": "AI Necklace Virtual Try-On",
+        "taskId": "7YvI53c8KKRKNieWL1Xn9h3D2Qwr5C-_UQky4N5YioCttIRaiM7Eldj0XuB4Epq4rsVEnq3ffBAO2Lf_ZLul6Q",
+        "ms": 7351,
+        "units": 1,
+        "params": {
+          "source_info": {
+            "name": "<your photo>"
+          },
+          "object_infos": [
+            {
+              "name": "<product image>"
+            }
+          ],
+          "src_file_id": "<your photo>",
+          "ref_file_ids": [
+            "<product image>"
+          ]
+        }
+      }
+    },
+    {
+      "kind": "lip",
+      "lipHex": "#bb626c",
+      "image": "/samples/meera/layer-lip.jpg",
+      "step": {
+        "feature": "lip",
+        "featureName": "AI Makeup Virtual Try-On",
+        "taskId": "gaSE7Q7tdXvLIt87ki3a3DlaIiEfKTLM3FAwWUHHJZOIRbW17eSJk0zdvIv0uRnxd-BTT-LvvMAmKHuvXEbI5Q",
+        "ms": 11974,
+        "units": 1,
+        "params": {
+          "src_file_id": "<your photo>",
+          "version": "1.0",
+          "effects": [
+            {
+              "category": "lip_color",
+              "shape": {
+                "name": "<product image>"
+              },
+              "style": {
+                "type": "full"
+              },
+              "morphology": {
+                "fullness": 0,
+                "wrinkless": 0
+              },
+              "palettes": [
+                {
+                  "color": "#bb626c",
+                  "colorIntensity": 60,
+                  "texture": "matte"
+                }
+              ]
+            }
+          ]
+        }
+      }
+    }
+  ],
+  "totals": {
+    "units": 28,
+    "tryOnUnits": 8
+  }
+}

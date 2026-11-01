@@ -1,0 +1,262 @@
+{
+  "id": "ananya",
+  "name": "Ananya",
+  "occasion": "wedding-guest",
+  "aiGenerated": true,
+  "photo": "/samples/ananya/photo.jpg",
+  "recordedAt": "2026-11-01T06:58:27.610Z",
+  "tone": {
+    "taskId": "Qb37EATCFPN_RaBI5L8_JDVFI71rj0CD7t-BrbWHuR20se0v65m-8ro4-ddMK7GyaWDS9eILM6KP1umZGeEfHw",
+    "ms": 10577,
+    "units": 20,
+    "recordedAt": "AI-Facial-Color-Tones-Analyzer (skin-tone-analysis), recorded 2026-10-21",
+    "results": {
+      "color": {
+        "eye_color": "#3e2f2d",
+        "eye_color_name": "Brown",
+        "lip_color": "#b86165",
+        "eyebrow_color": "#3e3834",
+        "skin_color": "#b78565",
+        "hair_color": "#FAF0BE",
+        "hair_color_name": "Blonde"
+      },
+      "face_quality": {
+        "has_face": true,
+        "area": "good",
+        "frontal": "good",
+        "lighting": "good",
+        "faceangle": "good"
+      }
+    }
+  },
+  "profile": {
+    "depth": "medium",
+    "ita": 21.4,
+    "skinHex": "#b78565",
+    "lipHex": "#b86165"
+  },
+  "ranking": [
+    {
+      "outfitId": "anarkali-emerald",
+      "score": 1.16,
+      "reasons": [
+        {
+          "rule": "stands-out",
+          "colour": "#143a28",
+          "deltaE": 46.5,
+          "lightness": "deeper"
+        }
+      ],
+      "text": "The emerald green is clearly deeper than your skin tone, so it stands out against it."
+    },
+    {
+      "outfitId": "saree-royal-blue",
+      "score": 0.871,
+      "reasons": [
+        {
+          "rule": "stands-out",
+          "colour": "#161f69",
+          "deltaE": 52.8,
+          "lightness": "deeper"
+        },
+        {
+          "rule": "rich-colour",
+          "colour": "#161f69",
+          "chroma": 51
+        },
+        {
+          "rule": "low-contrast",
+          "colour": "#846c63",
+          "deltaE": 15.1
+        }
+      ],
+      "text": "The royal blue is clearly deeper than your skin tone and richly coloured, so it stands out against it."
+    },
+    {
+      "outfitId": "lehenga-maroon",
+      "score": 0.776,
+      "reasons": [
+        {
+          "rule": "stands-out",
+          "colour": "#401012",
+          "deltaE": 41.2,
+          "lightness": "deeper"
+        },
+        {
+          "rule": "low-contrast",
+          "colour": "#885742",
+          "deltaE": 18.2
+        }
+      ],
+      "text": "The maroon is clearly deeper than your skin tone, so it stands out against it."
+    },
+    {
+      "outfitId": "chikankari-beige",
+      "score": 0.138,
+      "reasons": [
+        {
+          "rule": "low-contrast",
+          "colour": "#d8c2ae",
+          "deltaE": 18.2
+        }
+      ],
+      "text": "The beige sits close to your skin tone, so it may blend in rather than stand out."
+    }
+  ],
+  "outfits": [
+    {
+      "outfitId": "anarkali-emerald",
+      "image": "/samples/ananya/outfit-anarkali-emerald.jpg",
+      "step": {
+        "feature": "outfit",
+        "featureName": "AI Clothes Virtual Try-On",
+        "taskId": "oTZehIMy7LN8RnCElC6EaDJbL3WW8YX4NqoG4C3bkqK9Oh3yVhFhhIVE0NU9MhVRGi4M447Ki6l9hDTl1ySvww",
+        "ms": 15861,
+        "units": 2,
+        "params": {
+          "src_file_id": "<your photo>",
+          "ref_file_id": "<product image>",
+          "garment_category": "full_body"
+        }
+      }
+    },
+    {
+      "outfitId": "saree-royal-blue",
+      "image": "/samples/ananya/outfit-saree-royal-blue.jpg",
+      "step": {
+        "feature": "outfit",
+        "featureName": "AI Clothes Virtual Try-On",
+        "taskId": "rMnBtCg7cvPOONhP1xpKs1ABsZSA7xz69W5ebxPVZfoWhFXLYEe3D81e0rJP4p4NGi4M447Ki6l9hDTl1ySvww",
+        "ms": 14140,
+        "units": 2,
+        "params": {
+          "src_file_id": "<your photo>",
+          "ref_file_id": "<product image>",
+          "garment_category": "full_body"
+        }
+      }
+    }
+  ],
+  "layers": [
+    {
+      "kind": "earrings",
+      "itemId": "jhumka-gold",
+      "image": "/samples/ananya/layer-earrings.jpg",
+      "step": {
+        "feature": "earrings",
+        "featureName": "AI Earrings Virtual Try-On",
+        "taskId": "x1fENHJ8grbRwt4vJZtp5z8Rvy5sroK07ks0VJMxECkrAtq5ADQOwq4nn72KqGVJrsVEnq3ffBAO2Lf_ZLul6Q",
+        "ms": 7686,
+        "units": 2,
+        "params": {
+          "source_info": {
+            "name": "<your photo>"
+          },
+          "object_infos": [
+            {
+              "name": "<product image>",
+              "parameter": {
+                "earring_is_right_ear": true
+              }
+            },
+            {
+              "name": "<product image>",
+              "parameter": {
+                "earring_is_right_ear": false
+              }
+            }
+          ],
+          "src_file_id": "<your photo>",
+          "ref_file_ids": [
+            "<product image>"
+          ]
+        }
+      }
+    },
+    {
+      "kind": "necklace",
+      "itemId": "necklace-kundan-gold",
+      "image": "/samples/ananya/layer-necklace.jpg",
+      "step": {
+        "feature": "necklace",
+        "featureName": "AI Necklace Virtual Try-On",
+        "taskId": "5VMLUit01QPMVCcf32GwmrJVSU9n17rYqjugsvhTy3h2iqcEj87ZrrkMmDpVZGU-rsVEnq3ffBAO2Lf_ZLul6Q",
+        "ms": 5230,
+        "units": 1,
+        "params": {
+          "source_info": {
+            "name": "<your photo>"
+          },
+          "object_infos": [
+            {
+              "name": "<product image>"
+            }
+          ],
+          "src_file_id": "<your photo>",
+          "ref_file_ids": [
+            "<product image>"
+          ]
+        }
+      }
+    },
+    {
+      "kind": "lip",
+      "lipHex": "#a7515a",
+      "image": "/samples/ananya/layer-lip.jpg",
+      "step": {
+        "feature": "lip",
+        "featureName": "AI Makeup Virtual Try-On",
+        "taskId": "QQ6fk8mlLTelSnOCAkJA1Q2OpOO3U8Gm-NJC2ujF_9vR3AyjOYLpWZHr0qTqBWAid-BTT-LvvMAmKHuvXEbI5Q",
+        "ms": 12432,
+        "units": 1,
+        "params": {
+          "src_file_id": "<your photo>",
+          "version": "1.0",
+          "effects": [
+            {
+              "category": "lip_color",
+              "shape": {
+                "name": "<product image>"
+              },
+              "style": {
+                "type": "full"
+              },
+              "morphology": {
+                "fullness": 0,
+                "wrinkless": 0
+              },
+              "palettes": [
+                {
+                  "color": "#a7515a",
+                  "colorIntensity": 60,
+                  "texture": "matte"
+                }
+              ]
+            }
+          ]
+        }
+      }
+    }
+  ],
+  "v0": {
+    "outfitId": "chikankari-beige",
+    "image": "/samples/ananya/outfit-chikankari-beige.jpg",
+    "step": {
+      "feature": "outfit",
+      "featureName": "AI Clothes Virtual Try-On",
+      "taskId": "nQhn3Kqby69r49dbDC37ausSjV7pmeUqaS4ZXKchFB_BqKConIYihZlbsT0iLAvCGi4M447Ki6l9hDTl1ySvww",
+      "ms": 15180,
+      "units": 2,
+      "params": {
+        "src_file_id": "<your photo>",
+        "ref_file_id": "<product image>",
+        "garment_category": "full_body"
+      }
+    },
+    "note": "Picked by category only (wedding-guest kurta set), no tone matching"
+  },
+  "totals": {
+    "units": 30,
+    "tryOnUnits": 10
+  }
+}
