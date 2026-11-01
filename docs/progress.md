@@ -22,3 +22,5 @@
 - Shipped (later Nov 1): colorMatch with tests, YouCam client, 3 recorded samples (Ananya, Meera, Kavya), the app (replays, live flow, stylist agent on Claude, X-ray, look card, unit guard), README and changelog. Live flow verified end to end in the browser (28 units).
 - Decided: deep-tone shopper is named Kavya (office ethnic), placeholder until Praveen says otherwise.
 - Next: deploy to Vercel (Praveen: login, env vars), public GitHub repo, check on a phone, screenshots, video, Devpost.
+- Shipped (evening Nov 1): deployed to Vercel and checked on a phone; demo video on YouTube (2:53, https://www.youtube.com/watch?v=WuyJSH_5zQE); 14 gallery cards plus thumbnail; submitted at https://devpost.com/software/complete-look.
+- Next: fix Devpost thumbnail and gallery captions, add the live-cap testing note to the story; social share for bonus units; check the live demo daily until judging ends (Nov 20).

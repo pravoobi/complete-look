@@ -4,7 +4,7 @@
 
 **One photo. Your colours. The whole outfit.** Built on YouCam APIs for Indian ethnic wear: YouCam measures your colours, a stylist agent picks outfits that stand out against them, and the outfit, jewellery and a lip shade matched to the outfit are tried on your photo, one layer on top of the other.
 
-**Live demo:** [complete-look.vercel.app](https://complete-look.vercel.app) · **Sample shopper:** [complete-look.vercel.app/look/ananya](https://complete-look.vercel.app/look/ananya) · **Video:** [youtube.com/watch?v=WuyJSH_5zQE](https://www.youtube.com/watch?v=WuyJSH_5zQE) · [How it's built](#how-its-built)
+**Live demo:** [complete-look.vercel.app](https://complete-look.vercel.app) · **Sample shopper:** [complete-look.vercel.app/look/ananya](https://complete-look.vercel.app/look/ananya) · **Video:** [youtube.com/watch?v=WuyJSH_5zQE](https://www.youtube.com/watch?v=WuyJSH_5zQE) · **Devpost:** [devpost.com/software/complete-look](https://devpost.com/software/complete-look) · [How it's built](#how-its-built)
 
 | Before | Outfit | + Jewellery | + Lip colour |
 |---|---|---|---|
