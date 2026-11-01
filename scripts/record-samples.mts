@@ -6,7 +6,8 @@ import { createHash } from 'node:crypto';
 import { existsSync, mkdirSync, readFileSync, writeFileSync } from 'node:fs';
 import sharp from 'sharp';
 import { accessoriesFor, explain, lipFor, rankOutfits, toneProfile } from '../lib/colorMatch';
-import { type Occasion } from '../lib/catalog';
+import { outfitById, type Occasion } from '../lib/catalog';
+import { runStylist } from '../lib/stylist';
 import { fetchImage, resultUrl, runStep, type Feature, type Image, type StepLog } from '../lib/youcam/client';
 
 type Shopper = { id: string; name: string; occasion: Occasion; photo: string; tone: string; v0?: string };
@@ -65,16 +66,22 @@ for (const s of SHOPPERS.filter((x) => which === 'all' || x.id === which)) {
   const photo = file(s.photo);
   const photoUrl = await save(photo, s.id, 'photo');
 
+  // The stylist agent (Claude over colorMatch) picks the 2 outfits to try, same as live mode.
+  const rankingOut = ranking.map((r) => ({ outfitId: r.outfit.id, score: r.score, reasons: r.reasons, text: explain(r) }));
+  const profileOut = { depth: profile.depth, ita: profile.ita, skinHex: profile.skinHex, lipHex: profile.lipHex };
+  const stylist = await runStylist({ profile: profileOut, ranking: rankingOut, occasion: s.occasion });
+  console.log(`  stylist (${stylist.model}${stylist.fallback ? ', fallback' : ''}): ${stylist.picks.map((p) => p.outfitId).join(', ')}`);
+
   const outfits = [];
   const fullRes: Image[] = []; // chain layers from the full-resolution result, not the 900 px copy
-  for (const scored of ranking.slice(0, 2)) {
-    const r = await step('outfit', photo, product(scored.outfit.id));
-    outfits.push({ outfitId: scored.outfit.id, image: await save(r.img, s.id, `outfit-${scored.outfit.id}`), step: r.log });
+  for (const { outfitId } of stylist.picks) {
+    const r = await step('outfit', photo, product(outfitId));
+    outfits.push({ outfitId, image: await save(r.img, s.id, `outfit-${outfitId}`), step: r.log });
     fullRes.push(r.img);
   }
 
   // Accessories go on the top pick only (CLAUDE.md §5).
-  const top = ranking[0].outfit;
+  const top = outfitById(stylist.picks[0].outfitId)!;
   const metal = accessoriesFor(top);
   const earrings = metal.find((a) => a.kind === 'earrings')!;
   const necklace = metal.find((a) => a.kind === 'necklace');
@@ -101,8 +108,9 @@ for (const s of SHOPPERS.filter((x) => which === 'all' || x.id === which)) {
     id: s.id, name: s.name, occasion: s.occasion, aiGenerated: true, photo: photoUrl,
     recordedAt: new Date().toISOString(),
     tone: { taskId: tone.taskId, ms: tone.ms, units: tone.units, recordedAt: tone.source, results: tone.results },
-    profile: { depth: profile.depth, ita: profile.ita, skinHex: profile.skinHex, lipHex: profile.lipHex },
-    ranking: ranking.map((r) => ({ outfitId: r.outfit.id, score: r.score, reasons: r.reasons, text: explain(r) })),
+    profile: profileOut,
+    ranking: rankingOut,
+    stylist,
     outfits, layers, v0,
     totals: { units: tone.units + steps.reduce((n, x) => n + x.units, 0), tryOnUnits: steps.reduce((n, x) => n + x.units, 0) },
   };

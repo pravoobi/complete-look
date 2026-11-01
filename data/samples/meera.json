@@ -4,7 +4,7 @@
   "occasion": "diwali",
   "aiGenerated": true,
   "photo": "/samples/meera/photo.jpg",
-  "recordedAt": "2026-11-01T06:59:40.691Z",
+  "recordedAt": "2026-11-01T07:11:48.803Z",
   "tone": {
     "taskId": "rDgWXEkcsFKiNG2CzI4-xU4dw4Y6NoY8wSxr64zi6ls3BoW6rS5CStlptHQMVMzEaWDS9eILM6KP1umZGeEfHw",
     "ms": 10023,
@@ -102,6 +102,49 @@
       "text": "The beige sits close to your skin tone, so it may blend in rather than stand out."
     }
   ],
+  "stylist": {
+    "model": "claude-sonnet-5-5",
+    "summary": "Both Diwali picks are deep, rich colours that stand out clearly against your skin tone, while mustard and beige tend to blend in.",
+    "picks": [
+      {
+        "outfitId": "anarkali-emerald",
+        "why": "The emerald green is clearly deeper than your skin tone, so it stands out strongly, which suits Diwali evening celebrations."
+      },
+      {
+        "outfitId": "saree-royal-blue",
+        "why": "The royal blue is deeper than your skin tone and richly coloured, so it stands out, though its muted accent shade blends in more."
+      }
+    ],
+    "toolCalls": [
+      {
+        "name": "get_tone_profile",
+        "input": {},
+        "ms": 0
+      },
+      {
+        "name": "search_catalog",
+        "input": {},
+        "ms": 0
+      },
+      {
+        "name": "finalize_look",
+        "input": {
+          "picks": [
+            {
+              "outfit_id": "anarkali-emerald",
+              "why": "The emerald green is clearly deeper than your skin tone, so it stands out strongly, which suits Diwali evening celebrations."
+            },
+            {
+              "outfit_id": "saree-royal-blue",
+              "why": "The royal blue is deeper than your skin tone and richly coloured, so it stands out, though its muted accent shade blends in more."
+            }
+          ],
+          "summary": "Both Diwali picks are deep, rich colours that stand out clearly against your skin tone, while mustard and beige tend to blend in."
+        },
+        "ms": 0
+      }
+    ]
+  },
   "outfits": [
     {
       "outfitId": "anarkali-emerald",

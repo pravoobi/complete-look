@@ -5,6 +5,8 @@ import nextTs from "eslint-config-next/typescript";
 const eslintConfig = defineConfig([
   ...nextVitals,
   ...nextTs,
+  // YouCam and Anthropic responses are untyped JSON; we validate the fields we read instead.
+  { rules: { "@typescript-eslint/no-explicit-any": "warn" } },
   // Override default ignores of eslint-config-next.
   globalIgnores([
     // Default ignores of eslint-config-next:

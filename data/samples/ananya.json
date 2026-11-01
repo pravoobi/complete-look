@@ -4,7 +4,7 @@
   "occasion": "wedding-guest",
   "aiGenerated": true,
   "photo": "/samples/ananya/photo.jpg",
-  "recordedAt": "2026-11-01T06:58:27.610Z",
+  "recordedAt": "2026-11-01T07:11:44.703Z",
   "tone": {
     "taskId": "Qb37EATCFPN_RaBI5L8_JDVFI71rj0CD7t-BrbWHuR20se0v65m-8ro4-ddMK7GyaWDS9eILM6KP1umZGeEfHw",
     "ms": 10577,
@@ -103,6 +103,66 @@
       "text": "The beige sits close to your skin tone, so it may blend in rather than stand out."
     }
   ],
+  "stylist": {
+    "model": "claude-sonnet-5-5",
+    "summary": "Both picks are deep colours that stand out clearly against your skin tone, which works well for a wedding guest.",
+    "picks": [
+      {
+        "outfitId": "anarkali-emerald",
+        "why": "The emerald green is clearly deeper than your skin tone, so it stands out at the wedding."
+      },
+      {
+        "outfitId": "saree-royal-blue",
+        "why": "The royal blue is clearly deeper than your skin tone and richly coloured, so it stands out at the wedding."
+      }
+    ],
+    "toolCalls": [
+      {
+        "name": "get_tone_profile",
+        "input": {},
+        "ms": 0
+      },
+      {
+        "name": "search_catalog",
+        "input": {},
+        "ms": 0
+      },
+      {
+        "name": "finalize_look",
+        "input": {
+          "picks": [
+            {
+              "outfit_id": "anarkali-emerald",
+              "why": "The emerald green is clearly deeper than your skin tone, so it stands out beautifully for a wedding guest look."
+            },
+            {
+              "outfit_id": "saree-royal-blue",
+              "why": "The royal blue is clearly deeper than your skin tone and richly coloured, so it stands out; the saree suits a wedding."
+            }
+          ],
+          "summary": "Both picks are deep, saturated colours that stand out clearly against your skin tone, making them strong choices for a wedding guest."
+        },
+        "ms": 1
+      },
+      {
+        "name": "finalize_look",
+        "input": {
+          "picks": [
+            {
+              "outfit_id": "anarkali-emerald",
+              "why": "The emerald green is clearly deeper than your skin tone, so it stands out at the wedding."
+            },
+            {
+              "outfit_id": "saree-royal-blue",
+              "why": "The royal blue is clearly deeper than your skin tone and richly coloured, so it stands out at the wedding."
+            }
+          ],
+          "summary": "Both picks are deep colours that stand out clearly against your skin tone, which works well for a wedding guest."
+        },
+        "ms": 0
+      }
+    ]
+  },
   "outfits": [
     {
       "outfitId": "anarkali-emerald",

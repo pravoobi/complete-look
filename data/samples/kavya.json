@@ -4,7 +4,7 @@
   "occasion": "office-ethnic",
   "aiGenerated": true,
   "photo": "/samples/kavya/photo.jpg",
-  "recordedAt": "2026-11-01T06:59:31.547Z",
+  "recordedAt": "2026-11-01T07:11:52.938Z",
   "tone": {
     "taskId": "RepNB28MxagSoPIZU2lnPinrCsvlFoDQvyTKcXi2bp28pPBXclP8qAuBBDTMN4BpaWDS9eILM6KP1umZGeEfHw",
     "ms": 11162,
@@ -68,6 +68,49 @@
       "text": "The beige is clearly lighter than your skin tone, so it stands out against it."
     }
   ],
+  "stylist": {
+    "model": "claude-sonnet-5-5",
+    "summary": "Both picks are clearly lighter than your measured skin tone, so they stand out well for office; the mustard adds richer colour and the beige stays subtler.",
+    "picks": [
+      {
+        "outfitId": "kurta-mustard",
+        "why": "The mustard is clearly lighter than your skin tone and richly coloured, so it stands out sharply in an office setting."
+      },
+      {
+        "outfitId": "chikankari-beige",
+        "why": "The beige is clearly lighter than your skin tone, so it stands out as a clean, understated office option."
+      }
+    ],
+    "toolCalls": [
+      {
+        "name": "get_tone_profile",
+        "input": {},
+        "ms": 0
+      },
+      {
+        "name": "search_catalog",
+        "input": {},
+        "ms": 0
+      },
+      {
+        "name": "finalize_look",
+        "input": {
+          "picks": [
+            {
+              "outfit_id": "kurta-mustard",
+              "why": "The mustard is clearly lighter than your skin tone and richly coloured, so it stands out sharply in an office setting."
+            },
+            {
+              "outfit_id": "chikankari-beige",
+              "why": "The beige is clearly lighter than your skin tone, so it stands out as a clean, understated office option."
+            }
+          ],
+          "summary": "Both picks are clearly lighter than your measured skin tone, so they stand out well for office; the mustard adds richer colour and the beige stays subtler."
+        },
+        "ms": 0
+      }
+    ]
+  },
   "outfits": [
     {
       "outfitId": "kurta-mustard",
